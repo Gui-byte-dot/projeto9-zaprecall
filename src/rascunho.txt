@@ -1,0 +1,35 @@
+  <div class="perguntas">
+                {perguntas.map((pergunta, index) =>
+                    <>
+                        { certa ? (
+                            <div key={index} >
+                            <p className={certa[pergunta.id] ? 'errado' : 'blue'}>Pergunta {pergunta.id}</p>
+                            <img key={pergunta.id} src="seta.png" alt="setinha" onClick={() => toggleElement(pergunta.id)} />
+                        </div>
+                        ) :
+                                questao[pergunta.id] ?
+                                    (answer[pergunta.id] ?
+                                        <section class="exibir">
+                                            <p>{pergunta.answer}</p>
+                                            <button class="naolembrei" onClick={handleClick}>Não lembrei</button>
+                                            <button class="quasenaolembrei">Quase não lembrei</button>
+                                            <button class="zap">Zap!</button>
+                                        </section> :
+                                        <section class="exibir">
+                                            <p >{pergunta.question}</p>
+                                            <img src="retorno.png" alt="retorno" onClick={() => toggle(pergunta.id)} />
+                                        </section>
+                                    ) :
+                                    <div key={index} >
+                                        <p>Pergunta {pergunta.id}</p>
+                                        <img key={pergunta.id} src="seta.png" alt="setinha" onClick={() => toggleElement(pergunta.id)} />
+                                    </div>
+                        }
+
+                    </>
+
+                )
+
+                }
+
+            </div>

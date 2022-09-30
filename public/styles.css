@@ -69,3 +69,35 @@ body {
 .hide{
     display: none;
 }
+footer{
+    background: #FFFFFF;
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
+    height: 111px;
+    display: flex;
+    justify-content: center;
+}
+footer button{
+    height: 37.17px;
+    margin-top:9px;
+    margin-left: 7.74px;
+    border-radius: 5px;
+    color: #FFFFFF;
+    width: 85.17px;
+
+
+}
+.naolembrei{
+    background: #FF3030;
+}
+.quasenaolembrei{
+    background: #FF922E;
+}
+.zap{
+    background: #2FBE34;
+}
+.errado{
+   color:#FF3030; 
+}
+.blue{
+    color:blue;
+}

@@ -1,64 +1,89 @@
-import { useState } from "react"
-
-export default function App() {
-    const [questao, setQuestao] = useState({});
-    const [answer, setAnswer] = useState({});
-    const isHide = true;
-    const perguntas =
-        [
-            { id: 1, question: 'O que é JSX?', answer: 'Uma extensão de linguagem do JavaScript' },
-            { id: 2, question: 'O React é __?', answer: 'Uma extensão de linguagem do JavaScript' },
-            { id: 3, question: 'Componentes devem iniciar com __ ', answer: 'letra maiúscula' },
-            { id: 4, question: 'Podemos colocar __ dentro do JSX', answer: 'expressões' },
-            { id: 5, question: 'O ReactDOM nos ajuda', answer: 'interagindo com a DOM para colocar componentes React na mesma' },
-            { id: 6, question: 'Usamos o npm para __', answer: 'gerenciar os pacotes necessários e suas dependências' },
-            { id: 7, question: 'Usamos props para __', answer: 'passar diferentes informações para componentes ' },
-            { id: 8, question: 'Usamos estado (state) para __', answer: 'dizer para o React quais informações quando atualizadas devem renderizar a tela novamente' },
-        ];
-    const toggleElement = id => {
-        setQuestao(prevShown => ({
-            ...prevShown,
-            [id]: !prevShown[id]
-        }));
-    };
-    const toggle = id => {
-        setAnswer(prevShown => ({
-            ...prevShown,
-            [id]: !prevShown[id]
-        }));
-    };
+import { useState } from "react";
+import Question from "./Question";
+import styled from "styled-components"
+import PERGUNTAS from "./perguntas";
 
 
-
+export default function App({}) {
+    
+    const [perguntas, setPerguntas] = useState([]);      
+   
     return (
-        <>
-            <div class="title">
-                <img src="zaprecall.png" alt="projeto" />
-                <h2>ZapRecall</h2>
-            </div>
-            <div class="perguntas">
+    <ContainerApp>
+        <Question perguntas={perguntas}  />
+    </ContainerApp>
+    )
+}
+
+const ContainerApp = styled.div`
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  padding-right: 400px;
+`;
+
+
+
+
+
+
+// const [questao, setQuestao] = useState({});
+    // const [answer, setAnswer] = useState({});
+    // const [certa, setCerta] = useState(false);
+    // const [isActive, setIsActive] = useState(false);
+    // const isHide = true;
+
+
+
+
+// const toggleElement = id => {
+//     setQuestao(prevShown => ({
+//         ...prevShown,
+//         [id]: !prevShown[id]
+//     }));
+// };
+// const toggle = id => {
+//     setAnswer(prevShown => ({
+//         ...prevShown,
+//         [id]: !prevShown[id]
+//     }));
+// };
+
+// const handleClick = () => {
+//     setCerta(current => !current);
+// };
+
+
+
+
+
+{/* <div class="perguntas">
                 {perguntas.map((pergunta, index) =>
                     <>
-                    
-
-                        {
-                        
-                        questao[pergunta.id] ?
-                            (answer[pergunta.id] ?
-                                <section class="exibir">
-                                    <p>{pergunta.answer}</p>
-                                </section> :
-                            <section class="exibir">
-                                <p>{pergunta.question}</p>
-                                <img src="retorno.png" alt="retorno" onClick={() => toggle(pergunta.id)} />
-                            </section>
-                            ) :
+                        { certa ? (
                             <div key={index} >
-                                <p>Pergunta {pergunta.id}</p>
-                                <img key={pergunta.id} src="seta.png" alt="setinha" onClick={() => toggleElement(pergunta.id)} />
-                            </div>
-                        
-                        } 
+                            <p className={certa[pergunta.id] ? 'errado' : 'blue'}>Pergunta {pergunta.id}</p>
+                            <img key={pergunta.id} src="seta.png" alt="setinha" onClick={() => toggleElement(pergunta.id)} />
+                        </div>
+                        ) :
+                                questao[pergunta.id] ?
+                                    (answer[pergunta.id] ?
+                                        <section class="exibir">
+                                            <p>{pergunta.answer}</p>
+                                            <button class="naolembrei" onClick={handleClick}>Não lembrei</button>
+                                            <button class="quasenaolembrei">Quase não lembrei</button>
+                                            <button class="zap">Zap!</button>
+                                        </section> :
+                                        <section class="exibir">
+                                            <p >{pergunta.question}</p>
+                                            <img src="retorno.png" alt="retorno" onClick={() => toggle(pergunta.id)} />
+                                        </section>
+                                    ) :
+                                    <div key={index} >
+                                        <p>Pergunta {pergunta.id}</p>
+                                        <img key={pergunta.id} src="seta.png" alt="setinha" onClick={() => toggleElement(pergunta.id)} />
+                                    </div>
+                        }
 
                     </>
 
@@ -66,11 +91,13 @@ export default function App() {
 
                 }
 
-            </div>
-        </>
+            </div> */}
 
-    )
-}
+
+
+
+
+
 
 {/* <>
 <div class="title">
