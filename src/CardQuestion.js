@@ -1,39 +1,21 @@
-import styled from "styled-components"
+import { useState} from "react";
+import Question from "./Question";
+export default function CardQuestion({pergunta,props}){
+    const [showquestion, setShowQuestion] = useState(false);
+    const [dpquestion, setDpQuestion] = useState("block");
 
-export default function CardQuestion({ pergunta: {id, question, answer}}) {
+    
 
-    return (
-        <ItemCarrinho>
-            <div>
-                <strong>{question}</strong>
-                <p>{answer}</p>
-            </div>
-            <button>X</button>
-        </ItemCarrinho>
+    return(
+
+        <div key={pergunta.id} >
+            <p style={{display: dpquestion}}>Pergunta {pergunta.id}</p>
+            <img key={pergunta.id} src="seta.png" alt="setinha" onClick={() => {setShowQuestion(!showquestion);setDpQuestion("none")}} style={{display: dpquestion}} />
+            {showquestion ? <Question pergunta={pergunta}/> : null}
+
+        </div>
+
+
     )
 }
-// onClick={() => removerItemDoCarrinho(id)}
-
-const ItemCarrinho = styled.div`
-  border: 1px solid black;
-  display: flex;
-  margin: 10px;
-  padding: 10px;
-  justify-content: space-between;
-  align-items: center;
-
-  img {
-    width: 50px;
-    height: 50px;
-  }
-
-  div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  strong {
-    margin-bottom: 5px;
-  }
-`
+// ;setDp("none")

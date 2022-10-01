@@ -1,8 +1,5 @@
 body {
     background-color: #FB6B6B;
-
-
-
 }
 
 .title {
@@ -100,4 +97,14 @@ footer button{
 }
 .blue{
     color:blue;
+}
+.hidden{
+    display: none;
+}
+.exibir button{
+    width: 100px;
+    height: 80px;
+}
+.mostrar{
+    display: block;
 }

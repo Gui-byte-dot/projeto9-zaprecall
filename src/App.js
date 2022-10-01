@@ -1,26 +1,59 @@
-import { useState } from "react";
-import Question from "./Question";
 import styled from "styled-components"
-import PERGUNTAS from "./perguntas";
+import perguntas from "./perguntas";
+import CardQuestion from "./CardQuestion";
+import ButtonCard from "./ButtonCard";
+import { useState } from "react";
 
+export default function App({pergunta}) {
 
-export default function App({}) {
-    
-    const [perguntas, setPerguntas] = useState([]);      
-   
     return (
-    <ContainerApp>
-        <Question perguntas={perguntas}  />
-    </ContainerApp>
-    )
+            <>
+                <Title>
+                    <img src="zaprecall.png" alt="projeto" />
+                    <h2>ZapRecall</h2>
+                </Title>
+                <div class="perguntas">
+                    {perguntas.map((p, i) => (
+                        <CardQuestion key={i} pergunta={p} />
+
+                    ))}
+                </div>
+
+            </>
+        )
 }
 
-const ContainerApp = styled.div`
-  display: flex;
-  align-items: flex-start;
-  position: relative;
-  padding-right: 400px;
-`;
+
+
+const Title = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 48px;
+    font-size: 36px;
+
+
+`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
