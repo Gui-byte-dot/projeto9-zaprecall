@@ -50,7 +50,7 @@ body {
     border-radius: 5px;
 }
 
-.exibir {
+.exibirquestion {
     background: #FFFFD5;
     box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
     border-radius: 5px;
@@ -59,9 +59,30 @@ body {
     display: flex;
     flex-direction: column;
 }
-.exibir img{
+.exibirquestion img{
     width:30px;
     height:20px;
+}
+.exibirquestion button{
+    width: 100px;
+    height: 80px;
+}
+.exibiranswer {
+    background: #FFFFD5;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    width: 299px;
+    height: 131px;
+    display: flex;
+    flex-direction: column;
+}
+.exibiranswer img{
+    width:30px;
+    height:20px;
+}
+.exibiranswer button{
+    width: 100px;
+    height: 80px;
 }
 .hide{
     display: none;
@@ -101,10 +122,11 @@ footer button{
 .hidden{
     display: none;
 }
-.exibir button{
-    width: 100px;
-    height: 80px;
-}
+
 .mostrar{
     display: block;
+}
+.cardyellow{
+    display: flex;
+    flex-direction: row;
 }

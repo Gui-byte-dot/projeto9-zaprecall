@@ -3,9 +3,16 @@ import perguntas from "./perguntas";
 import CardQuestion from "./CardQuestion";
 import ButtonCard from "./ButtonCard";
 import { useState } from "react";
+import Answer from "./Answer";
 
-export default function App({pergunta}) {
-
+export default function App({pergunta,fechar}) {
+    const [contador, setContador] = useState(0);
+  
+    // function fechar(){
+    //     setContador(contador+1)
+    // }
+    
+        
     return (
             <>
                 <Title>
@@ -18,11 +25,23 @@ export default function App({pergunta}) {
 
                     ))}
                 </div>
+                <Concluido contador={contador} setContador={setContador}>
+                    {contador}
+                </Concluido>
+
+
 
             </>
         )
 }
 
+
+const Concluido = styled.footer`
+    width:100%;
+    height:50px;
+    background-color: 'white';
+    align-items:center;
+`
 
 
 const Title = styled.div`
