@@ -1,17 +1,58 @@
 import styled from "styled-components"
 import perguntas from "./perguntas";
 import CardQuestion from "./CardQuestion";
-import ButtonCard from "./ButtonCard";
 import { useState } from "react";
-import Answer from "./Answer";
 
-export default function App({pergunta,fechar}) {
+
+export default function App() {
+    const [showcardred, setShowCardRed] = useState(false);
+    const [showcardyellow, setShowCardYellow] = useState(false);
+    const [showcardgreen, setShowCardGreen] = useState(false);
     const [contador, setContador] = useState(0);
   
-    // function fechar(){
-    //     setContador(contador+1)
-    // }
+    let element1 = [];
+    let array = [];
+    function puxar(event){
+        let element = document.querySelectorAll(".sim");
+        for(let j = 0; j < element.length; j++){
+            element1.push(element[j])
+        }
+        console.log(element1);
+        console.log(event.target.id)
+        array.push(event.target.id)
+        console.log(element);
+      
+    }
     
+    function green(){
+        
+        document.querySelector(".sim").innerHTML = `
+         <p style={{color:'green'}} > Pergunta ${array[0]}</p>
+            <img src="iongreen.png" alt="green" />
+         `
+        document.querySelector('.sim p').style.color='green';
+        document.querySelector('.sim p').style.textDecoration='line-through green';
+  
+    }
+    function yellow(){
+        document.querySelector(".sim").innerHTML = `
+         <p class="naolembrei"> Pergunta ${array[0]}</p>
+            <img src="ionyellow.png" alt="yellow" />
+         `
+         document.querySelector('.sim p').style.color='#FF922E';
+            document.querySelector('.sim p').style.textDecoration='line-through #FF922E';  
+    }
+    function red(){
+        document.querySelector(".sim").innerHTML = `
+         <p class="naolembrei"> Pergunta ${array[0]}</p>
+            <img src="ionred.png" alt="yellow" />
+         `
+         document.querySelector('.sim p').style.color='#FF3030';
+         document.querySelector('.sim p').style.textDecoration='line-through #FF3030';    
+    }
+    
+    
+  
         
     return (
             <>
@@ -19,15 +60,26 @@ export default function App({pergunta,fechar}) {
                     <img src="zaprecall.png" alt="projeto" />
                     <h2>ZapRecall</h2>
                 </Title>
-                <div class="perguntas">
+                <div class="perguntas" onClick={puxar} >
                     {perguntas.map((p, i) => (
                         <CardQuestion key={i} pergunta={p} />
-
+                        
                     ))}
+                
+
+                       
+                   
                 </div>
-                <Concluido contador={contador} setContador={setContador}>
-                    {contador}
-                </Concluido>
+                <Footer showcardgreen={showcardgreen} showcardred={showcardred} showcardyellow={showcardyellow}>
+                        <section>
+                            <button onClick={() => {setShowCardRed(!showcardred);setContador(contador + 1);red()}}>Não lembrei</button>
+                            <button onClick={() => {setShowCardYellow(!showcardyellow);setContador(contador + 1);yellow()}}>Quase não lembrei</button>
+                            <button onClick={() => {setShowCardGreen(!showcardgreen);setContador(contador + 1);green()}}>Zap!</button>
+                        </section>
+                        <p>{contador}/8 CONCLUÍDO</p>
+                </Footer>
+                
+                
 
 
 
@@ -36,12 +88,84 @@ export default function App({pergunta,fechar}) {
 }
 
 
-const Concluido = styled.footer`
-    width:100%;
-    height:50px;
-    background-color: 'white';
-    align-items:center;
+const Footer = styled.footer`
+    background: #FFFFFF;
+    height: 111px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    button{
+        width: 85.17px;
+        height: 33.27px;
+    }
+    
+   section{
+        display: flex;
+        justify-content: space-around;
+        padding-top: 18.8px;
+
+   }
+   button:nth-child(1){
+        margin-left:7px;
+        background-color:#FF3030;
+        width: 85px;
+        height: 33px;
+        color:#FFFFFF;
+        font-size: 12px;
+        border:none;
+        font-family: 'Recursive', sans-serif;
+        font-weight: 400;
+        border-radius: 5px;
+
+
+
+
+    }
+   button:nth-child(2){
+        margin-left:7px;
+        background-color:#FF922E;
+        width: 85px;
+        height: 33px;
+        color:#FFFFFF;
+        font-size: 12px;
+        border:none;
+        font-family: 'Recursive', sans-serif;
+        font-weight: 400;
+        border-radius: 5px;
+
+
+
+
+   }
+   button:nth-child(3){
+        margin-left:7px;
+        background-color:#2FBE34;
+        width: 85px;
+        height: 33px;
+        color:#FFFFFF;
+        font-size: 12px;
+        border:none;
+        font-family: 'Recursive', sans-serif;
+        font-weight: 400;
+        border-radius: 5px;
+
+
+
+
+    }
+   p{
+        margin-top: 17.93px;
+        font-size: 18px;
+        font-family: 'Recursive', sans-serif;
+        font-weight: 400;
+
+
+
+   }
+    
 `
+
 
 
 const Title = styled.div`
@@ -51,6 +175,9 @@ const Title = styled.div`
     justify-content: center;
     margin-top: 48px;
     font-size: 36px;
+    color:#FFFFFF;
+    font-family: 'Righteous', cursive;
+
 
 
 `
@@ -79,71 +206,6 @@ const Title = styled.div`
 
 
 
-// const [questao, setQuestao] = useState({});
-    // const [answer, setAnswer] = useState({});
-    // const [certa, setCerta] = useState(false);
-    // const [isActive, setIsActive] = useState(false);
-    // const isHide = true;
-
-
-
-
-// const toggleElement = id => {
-//     setQuestao(prevShown => ({
-//         ...prevShown,
-//         [id]: !prevShown[id]
-//     }));
-// };
-// const toggle = id => {
-//     setAnswer(prevShown => ({
-//         ...prevShown,
-//         [id]: !prevShown[id]
-//     }));
-// };
-
-// const handleClick = () => {
-//     setCerta(current => !current);
-// };
-
-
-
-
-
-{/* <div class="perguntas">
-                {perguntas.map((pergunta, index) =>
-                    <>
-                        { certa ? (
-                            <div key={index} >
-                            <p className={certa[pergunta.id] ? 'errado' : 'blue'}>Pergunta {pergunta.id}</p>
-                            <img key={pergunta.id} src="seta.png" alt="setinha" onClick={() => toggleElement(pergunta.id)} />
-                        </div>
-                        ) :
-                                questao[pergunta.id] ?
-                                    (answer[pergunta.id] ?
-                                        <section class="exibir">
-                                            <p>{pergunta.answer}</p>
-                                            <button class="naolembrei" onClick={handleClick}>Não lembrei</button>
-                                            <button class="quasenaolembrei">Quase não lembrei</button>
-                                            <button class="zap">Zap!</button>
-                                        </section> :
-                                        <section class="exibir">
-                                            <p >{pergunta.question}</p>
-                                            <img src="retorno.png" alt="retorno" onClick={() => toggle(pergunta.id)} />
-                                        </section>
-                                    ) :
-                                    <div key={index} >
-                                        <p>Pergunta {pergunta.id}</p>
-                                        <img key={pergunta.id} src="seta.png" alt="setinha" onClick={() => toggleElement(pergunta.id)} />
-                                    </div>
-                        }
-
-                    </>
-
-                )
-
-                }
-
-            </div> */}
 
 
 
@@ -151,49 +213,5 @@ const Title = styled.div`
 
 
 
-{/* <>
-<div class="title">
-    <img src="zaprecall.png" alt="projeto" />
-    <h2>ZapRecall</h2>
-</div>
-<div class="perguntas">
-    <div>
-        <h2>Pergunta1</h2>
-        <img src="seta.png" alt="indicar"/>
-    </div>
-    <div>
-        <h2>Pergunta2</h2>
-        <img src="seta.png" alt="indicar"/>
-    </div>
-    <div>
-        <h2>Pergunta3</h2>
-        <img src="seta.png" alt="indicar"/>
-    </div>
-    <div>
-        <h2>Pergunta4</h2>
-        <img src="seta.png" alt="indicar"/>
-    </div>
-    <div>
-        <h2>Pergunta5</h2>
-        <img src="seta.png" alt="indicar"/>
-    </div>
-    <div>
-        <h2>Pergunta6</h2>
-        <img src="seta.png" alt="indicar"/>
-    </div>
-    <div>
-        <h2>Pergunta7</h2>
-        <img src="seta.png" alt="indicar"/>
-    </div>
-    <div>
-        <h2>Pergunta8</h2>
-        <img src="seta.png" alt="indicar"/>
-    </div>
-    <div>
-        <h2>Pergunta1</h2>
-        <img src="seta.png" alt="indicar"/>
-    </div>
-</div>
-</> */}
 
-// style={{display: isHide ? 'none' : 'block'}}
+

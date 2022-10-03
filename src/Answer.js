@@ -1,45 +1,41 @@
 import { useState } from "react";
-import ButtonCard from "./ButtonCard";
-import CardQuestion from "./CardQuestion";
-import App from "./App";
 import Question from "./Question";
-import CardQuestionRed from "./CardQuestionRed";
-import CardQuestionYellow from "./CardQuestionYellow";
-import CardQuestionGreen from "./CardQuestionGreen";
-import styled from "styled-components";
-import Concluido from "./App";
-import Valor from "./App"
+import App from "./App";
+import styled from "styled-components"
 
-export default function Answer({pergunta,setContador,contador}){
-   const [showcardred, setShowCardRed] = useState(false);
-   const [showcardyellow, setShowCardYellow] = useState(false);
-   const [showcardgreen, setShowCardGreen] = useState(false);
-   const [dpcard, setDpCard] = useState('flex');
-   
+
+
+export default function Answer({pergunta}){
+    const [showcardred, setShowCardRed] = useState(false);
+    const [showcardyellow, setShowCardYellow] = useState(false);
+    const [showcardgreen, setShowCardGreen] = useState(false);
+    const [contador, setContador] = useState(0);
+    const [dpcard, setDpCard] = useState("flex")
+
     return(
         <>  
-            <section class="exibiranswer" style={{display:dpcard}}>
-                <p>oi</p>
-
+            <section class="exibiranswer" style={{display: dpcard}} id="operation">
                 <p>{pergunta.answer}</p>
-                <button  onClick={() => {setDpCard("none");setShowCardRed(!showcardred);setContador(contador+1)}} />
-                <button onClick={() => {setDpCard("none");setShowCardYellow(!showcardyellow)}} />
-                <button onClick={() => {setDpCard("none");setShowCardGreen(!showcardgreen)}} />
+                <p class="yes" style={{display:'none'}}>{pergunta.id}</p>
+                {/* <button  contador={contador} setContador={setContador} onClick={() => {setShowCardRed(!showcardred);setContador(contador + 1);setDpCard("none")}} />
+                <button onClick={() => {setShowCardYellow(!showcardyellow)}} />
+                <button onClick={() => {setShowCardGreen(!showcardgreen)}} /> */}
             </section>
-            {showcardred ? <CardQuestionRed  pergunta={pergunta}/> : null}
-            {showcardyellow ? <CardQuestionYellow  pergunta={pergunta}/> : null}
-            {showcardgreen ? <CardQuestionGreen  pergunta={pergunta}/> : null}
+
+            {showcardred ? <><p style={{ color: 'red' }}>Pergunta {pergunta.id}</p><img src="ionred.png" alt="red" /></> : null}              
+            {showcardyellow ? <><p style={{ color: 'green' }}>Pergunta {pergunta.id}</p><img src="iongreen.png" alt="green" /></> : null}
+            {showcardgreen ? <><p style={{ color: 'yellow' }}>Pergunta {pergunta.id}</p><img src="ionyellow.png" alt="yellow" /></> : null}
 
             
-         
 
 
            
 
         </>
         
+        
+        
     )
 } 
-
 
 
