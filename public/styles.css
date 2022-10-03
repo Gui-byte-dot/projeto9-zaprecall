@@ -1,131 +1,133 @@
 body {
-    background-color: #FB6B6B;
+  background-color: #fb6b6b;
 }
 
 .title {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-top: 48px;
-    font-size: 36px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 48px;
+  font-size: 36px;
 }
 
 .perguntas {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 51px;
-    margin-bottom: 67px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 51px;
+  margin-bottom: 67px;
 }
 
 .perguntas div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 300px;
-    height: 65px;
-    background: #FFFFFF;
-    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
-    border-radius: 5px;
-    margin-top: 25px;
-    justify-content: space-between;
-
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 300px;
+  height: 65px;
+  background: #ffffff;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  margin-top: 25px;
+  justify-content: space-between;
 }
 
 .perguntas div p {
-    color: #333333;
-    margin-left: 10px;
-    font-family: 'Recursive', sans-serif;
-    font-weight: 700;
+  color: #333333;
+  margin-left: 10px;
+  font-family: "Recursive", sans-serif;
+  font-weight: 700;
 }
 
 .perguntas div img {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .exibicaopergunta {
-    width: 299px;
-    height: 131px;
-    background: #FFFFD5;
-    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
-    border-radius: 5px;
+  width: 299px;
+  height: 131px;
+  background: #ffffd5;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
 }
 
 .exibirquestion {
-    background: #FFFFD5;
-    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
-    border-radius: 5px;
-    width: 315px;
-    height: 131px;
-    display: flex;
-    flex-direction: column;
+  background: #ffffd5;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  width: 315px;
+  height: 131px;
+  display: flex;
+  flex-direction: column;
 }
-.exibirquestion img{
-    width:30px;
-    height:20px;
-    margin-top:65px;
-    padding-left: 254px;
+.exibirquestion img {
+  width: 30px;
+  height: 20px;
+  margin-top: 65px;
+  padding-left: 254px;
 }
-.exibirquestion button{
-    width: 100px;
-    height: 80px;
+.exibirquestion button {
+  width: 100px;
+  height: 80px;
 }
-.exibirquestion p{
-    font-family: 'Recursive', sans-serif;
-    font-weight: 400;
-    margin-top:18px;
-    margin-left:15px;
+.exibirquestion p {
+  font-family: "Recursive", sans-serif;
+  font-weight: 400;
+  margin-top: 18px;
+  margin-left: 15px;
 }
 .exibiranswer {
-    background: #FFFFD5;
-    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
-    border-radius: 5px;
-    width: 315px;
-    height: 131px;
-    display: flex;
-    flex-direction: column;
+  background: #ffffd5;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  width: 315px;
+  height: 131px;
+  display: flex;
+  flex-direction: column;
 }
-.exibiranswer img{
-    width:30px;
-    height:20px;
+.exibiranswer img {
+  width: 30px;
+  height: 20px;
 }
-.exibiranswer button{
-    width: 100px;
-    height: 80px;
+.exibiranswer button {
+  width: 100px;
+  height: 80px;
 }
-.hide{
-    display: none;
-}
-
-.naolembrei{
-    color: #FF3030;
-}
-.quasenaolembrei{
-    color: #FF922E;
-}
-.zap{
-    color: #2FBE34;
-}
-.errado{
-   color:#FF3030; 
-}
-.blue{
-    color:blue;
-}
-.hidden{
-    display: none;
+.hide {
+  display: none;
 }
 
-.mostrar{
-    display: block;
+.naolembrei {
+  color: #ff3030;
 }
-.cardyellow{
-    display: flex;
-    flex-direction: row;
+.quasenaolembrei {
+  color: #ff922e;
 }
-.sim section{
-    margin-top: 25px;
-    margin-bottom: 25px;
+.zap {
+  color: #2fbe34;
+}
+.errado {
+  color: #ff3030;
+}
+.blue {
+  color: blue;
+}
+.hidden {
+  display: none;
+}
+
+.mostrar {
+  display: block;
+}
+.cardyellow {
+  display: flex;
+  flex-direction: row;
+}
+.sim section {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+.p1 {
+  color: "green";
 }
